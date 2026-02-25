@@ -1,0 +1,8 @@
+///////////////////////REQUIREMENTS///////////////////////
+
+numpy
+pandas
+scikit-learn
+matplotlib
+lightgbm
+catboost
