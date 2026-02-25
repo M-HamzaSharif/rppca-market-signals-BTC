@@ -15,7 +15,7 @@ The objective is to investigate whether projecting high-dimensional technical fe
 This is experimental implementation. Live trading integrations are intentionally excluded.
 
 
-## Motivation
+## Objective
 
 Financial market features (technical indicators, volatility metrics, sentiment signals) are often:
 
@@ -39,7 +39,7 @@ This pipeline aims to stabilize latent factor extraction while preserving domina
 
 The pipeline consists of:
 
-- Feature matrix input (synthetic BTC-like data for demo)
+- Feature matrix input (synthetic BTC-like data for demo(could have minor inconsistencies))
 - RP-PCA transformation:
   - RobustScaler
   - GaussianRandomProjection
@@ -50,7 +50,7 @@ The pipeline consists of:
   - Random Forest
   - LightGBM
   - CatBoost
-- Time-aware train/test split (no shuffle)
+- Time-aware train/test split
 - Model diagnostics:
   - Rolling accuracy
   - Confusion matrix
@@ -58,7 +58,7 @@ The pipeline consists of:
   - Calibration
 
 
-## RP-PCA Details
+## RP-PCA Details (Most maths just being done by libraries)
 
 Let X be the feature matrix.
 
@@ -75,16 +75,11 @@ Step 4:
 Reconstruction error:
 || Z - Z_hat ||
 
-The reconstruction norm is used as an anomaly measure.
-
-Additionally, approximate mappings to original feature space allow identification of top drivers per principal component.
-
-
 ## Running the Demo
 
 Install dependencies: 
 
-pip install -r requirements.txt (Mentioned in text file)
+pip install -r requirements.txt (Mentioned in text file provided)
 
 Run:
 
@@ -112,4 +107,5 @@ outputs/qa/
 ## Possible Integrations
 
 - Apply RP-PCA to real MT5 data
+
 - Integrate with macro-economic latent factor research (Possibilities exist for capital allocation decisions)
